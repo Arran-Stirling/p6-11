@@ -7,6 +7,8 @@ import java.util.*;  // For Observer
 import java.awt.*;
 import javax.swing.*;
 
+//Made changes -- Mick
+
 public class View1 extends JPanel 
                    implements Observer {
   

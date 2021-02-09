@@ -13,6 +13,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+//Hola, Amigos!!! -- Mick
+
 public class Controller1 extends JFrame
                          implements ActionListener {
   

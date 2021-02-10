@@ -17,19 +17,19 @@ public class Controller2 extends JFrame
     private View3 view3;
     private View4 view4;
     private JButton clearViews;   // For direct message to views
-    private JButton refreshViews; // To prompt them to refresh their contents from the model
+    private JButton incB; // increments B
  
     // Constructor
-    public Controller2(Model model) {
+    public Controller2(Model model, int x, int y, String name) {
     
         // Record reference to the model
         this.model = model;
         
         // Configure the window
-        setTitle("Controller2");
-        setLocation(40,200);
+        setTitle(name);
+        setLocation(x,y);
         setSize(350,150);
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         Container window = getContentPane();
         window.setLayout(new FlowLayout());     // The default is that JFrame uses BorderLayout
         
@@ -37,9 +37,9 @@ public class Controller2 extends JFrame
         clearViews = new JButton("Clear views");
         window.add(clearViews);
         clearViews.addActionListener(this);
-        refreshViews = new JButton("Refresh views");
-        window.add(refreshViews);
-        refreshViews.addActionListener(this);
+        incB = new JButton("Increment B");
+        window.add(incB);
+        incB.addActionListener(this);
         // Create views
         view3 = new View3(this, model);
         window.add(view3);
@@ -58,9 +58,8 @@ public class Controller2 extends JFrame
             view3.clear();
             view4.clear();
         }
-        if (e.getSource() == refreshViews) {
-            view3.update();
-            view4.update();
+        if (e.getSource() == incB) {
+            model.modifyB();
         }
         
     } // actionPerformed
